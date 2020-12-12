@@ -9,12 +9,11 @@ sublists n (x:xs) =
         [x : subs | subs <- sublists (n-1) xs] 
         ++ sublists n xs    
 
-findSum :: [Int] -> [[Int]]
-findSum = filter (\a -> sum a == 2020) . sublists 2
+findSum :: Int -> [Int] -> [[Int]]
+findSum n = filter (\a -> sum a == 2020) . sublists n
 
 main = do
-        -- contents <- readFile "input.txt"
-        print . product . (!! 0) . findSum . map readInt . words =<< readFile "input.txt"
+        print . product . (!! 0) . findSum 3 . map readInt . words =<< readFile "input.txt"
         -- putStr "c\n"
 
 readInt :: String -> Int
