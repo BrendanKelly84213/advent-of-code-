@@ -1,3 +1,5 @@
+import Split 
+
 test = ["1-3 a: abcde","1-3 b: cdefg","2-9 c: ccccccccc"]
 
 readInt :: String -> Int 
@@ -42,7 +44,7 @@ xor True a = not a
 xor False a = a
 
 checkCond2 :: String -> Bool
-checkCond2 str =
+checkCond2 str = 
         let c = condChar str
             is = bounds str -- Bounds are now indices
             pass = password str
@@ -58,18 +60,6 @@ numTrue = length . filter (\a -> a) . map checkCond
 -- The number of passwords that satisfies the condition in the second phase of the thing 
 numTrue2 :: [String] -> Int 
 numTrue2 = length . filter (\a -> a) . map checkCond2
-
-split :: Char -> String -> [String]
-split _ "" = [] -- empty list
-split tok str = helper str "" -- start helper with empty current word
-    where helper :: String -> String -> [String]
-          -- when the entire string is consumed
-          helper "" ""      = [] -- if no current word, append nothing
-          helper "" current = [current] -- if current word, append this to the list
-          -- otherwise
-          helper (x:xs) current
-              | x == tok              = current : helper xs "" -- but skip on whitespaces
-              | otherwise             = helper xs (current ++ [x]) -- if no seperator, just continue building up the current word
 
 main :: IO ()
 main = do
