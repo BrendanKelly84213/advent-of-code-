@@ -1,17 +1,3 @@
--- Move 3 right 1 down
--- 	Store input as data
--- 		List of lists ?
--- 			Outer list index is number in Y down 		
--- 			Inner list is starting pattern at the Y index
--- 			[[#..#],..]
---			
---	X index is always Y*3	
---      Patterns repeat to the right,
---      X is always Y*3 (mod (length of data))
---      If there is a '#' at X then 1 else 0
--- 				
--- Count up if there is a # 
-
 import Data.Char
 import Data.Bits
 import Numeric
